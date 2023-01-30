@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Iterate over all .check files in the etc/git-hooks directory
-for check in etc/git-hooks/checks; do
+# Iterate over all files in the etc/git-hooks/check directory
+for check in ./checks; do
   "$check" || {
     echo "Pre-commit check failed: $check"
     exit 1
