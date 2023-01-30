@@ -2,7 +2,7 @@
 
 # Check if PHPStan && PHP AT are installed
 if [ -f vendor/bin/phpstan ]; then
-  vendor/bin/phpstan analyse src --quiet || {
+  vendor/bin/phpstan analyse -c tests/phpstan.neon --quiet || {
     echo "PHPStan analysis failed, commit aborted."
     exit 1
   }
