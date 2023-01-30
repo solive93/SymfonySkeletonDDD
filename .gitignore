@@ -9,3 +9,7 @@
 
 # --- 💻 IDE 💻 --- #
 .idea/
+
+# --- 🧪 PHPUnit 🧪 --- #
+.phpunit.result.cache
+/phpunit.xml
