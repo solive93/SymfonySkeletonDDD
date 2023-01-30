@@ -31,12 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Company\\RestApi\\": "apps/rest-api/src/",
+            "Company\\": ["src"]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Company\\Tests\\": "tests/src"
         }
     },
     "replace": {
