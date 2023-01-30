@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Get a list of all files that will be committed
-files=$(git diff-index --cached --name-only HEAD)
+# Get a list of all .php files that will be committed
+php_files=$(git diff-index --cached --name-only HEAD | grep -E '\.php$')
 
-# Check for var_dump(), dump(), echo, or dd() in the committed files
-for file in $files; do
+# Check for var_dump(), dump(), echo, or dd() in the committed .php files
+for file in $php_files; do
   if grep -qE '\b(var_dump\(|dump\(|echo|dd\()\b' "$file"; then
     echo "Found debugging function in $file"
     exit 1
   fi
 done
-

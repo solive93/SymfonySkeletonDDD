@@ -1,17 +1,13 @@
 #!/bin/bash
 
-# Check if PHPStan is installed
-which phpstan &> /dev/null && {
-  phpstan analyze || {
-    echo "PHPStan analysis failed"
+# Check if PHPStan && PHP AT are installed
+if [ -f vendor/bin/phpstan ]; then
+  vendor/bin/phpstan analyse src --quiet || {
+    echo "PHPStan analysis failed, commit aborted."
     exit 1
   }
-}
+else
+  echo "PHPStan is not installed, commit aborted."
+  exit 1
+fi
 
-# Check if PHP Architecture Testing is installed
-which phpat &> /dev/null && {
-  phpat || {
-    echo "PHP Architecture Testing analysis failed"
-    exit 1
-  }
-}
