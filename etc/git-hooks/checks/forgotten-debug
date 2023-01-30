@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get a list of all files that will be committed
+files=$(git diff-index --cached --name-only HEAD)
+
+# Check for var_dump(), dump(), echo, or dd() in the committed files
+for file in $files; do
+  if grep -qE '\b(var_dump\(|dump\(|echo|dd\()\b' "$file"; then
+    echo "Found debugging function in $file"
+    exit 1
+  fi
+done
+

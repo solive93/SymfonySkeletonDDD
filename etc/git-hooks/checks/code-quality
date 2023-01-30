@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check if PHPStan is installed
+which phpstan &> /dev/null && {
+  phpstan analyze || {
+    echo "PHPStan analysis failed"
+    exit 1
+  }
+}
+
+# Check if PHP Architecture Testing is installed
+which phpat &> /dev/null && {
+  phpat || {
+    echo "PHP Architecture Testing analysis failed"
+    exit 1
+  }
+}

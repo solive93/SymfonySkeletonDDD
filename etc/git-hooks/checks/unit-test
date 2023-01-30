@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check if PHPUnit is installed
+which phpunit &> /dev/null || {
+  echo "PHPUnit is not installed"
+  exit 1
+}
+
+# Run PHPUnit tests
+phpunit || {
+  echo "PHPUnit tests failed"
+  exit 1
+}
