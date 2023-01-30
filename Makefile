@@ -5,7 +5,6 @@ help: ## Prompts available commands
 
 build: hooks ## Sets up the project
 
-
 hooks: ## Installs git hooks
 	@chmod +x $(GIT_HOOKS_DIR)/checks/*
 	@chmod +x $(GIT_HOOKS_DIR)/pre-commit
