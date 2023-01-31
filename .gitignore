@@ -5,6 +5,7 @@
 /apps/rest-api/config/secrets/prod/prod.decrypt.private.php
 /apps/rest-api/public/bundles/
 /var/
+/apps/rest-api/var
 /vendor/
 
 # --- 💻 IDE 💻 --- #
