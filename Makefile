@@ -9,3 +9,15 @@ hooks: ## Installs git hooks
 	@chmod +x $(GIT_HOOKS_DIR)/checks/*
 	@chmod +x $(GIT_HOOKS_DIR)/pre-commit
 	@ln -sf ../../$(GIT_HOOKS_DIR)/pre-commit .git/hooks/pre-commit
+
+clear-cache: ## Clear Symfony Cache
+	@php apps/rest-api/bin/console cache:clear
+
+### --- 🧪 Testing 🧪 --- #
+test: phpunit phpstan ## Run unit tests and code analysis
+
+phpunit: ## Run phpunit tests
+	@vendor/bin/phpunit
+
+phpstan: ## Run phpstan code analysis
+	@vendor/bin/phpstan analyse -c tests/phpstan.neon

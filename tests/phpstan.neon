@@ -4,3 +4,6 @@ parameters:
 		- ../src
 		- ../apps/rest-api/src
 		- src
+	checkGenericClassInNonGenericObjectType: false
+	ignoreErrors:
+	    - '#[a-zA-Z0-9\\_]+ in iterable type array.#'
